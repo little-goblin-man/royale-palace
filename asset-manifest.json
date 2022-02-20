@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/royale-palace/static/css/main.0cb53ffc.css",
+    "main.js": "/royale-palace/static/js/main.5accbbe9.js",
+    "index.html": "/royale-palace/index.html",
+    "main.0cb53ffc.css.map": "/royale-palace/static/css/main.0cb53ffc.css.map",
+    "main.5accbbe9.js.map": "/royale-palace/static/js/main.5accbbe9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0cb53ffc.css",
+    "static/js/main.5accbbe9.js"
+  ]
+}
