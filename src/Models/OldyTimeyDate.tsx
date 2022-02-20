@@ -8,10 +8,10 @@ export const OldyTimeyDateToString = (date: OldyTimeyDate) => {
 };
 
 export const getMonth = (monthInt: number) => {
-  return months[monthInt - 1];
+  return Months[monthInt - 1];
 };
 
-const months = [
+export const Months = [
   "January",
   "February",
   "March",

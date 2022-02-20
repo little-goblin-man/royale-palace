@@ -6,4 +6,7 @@ body,
   width: 100%;
 }
 
-@import "bootstrap/dist/css/bootstrap.min.css";
+.fancytext {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: bold;
+}

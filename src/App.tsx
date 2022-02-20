@@ -1,13 +1,16 @@
 import React from "react";
 import "./App.css";
 import { Main } from "./Components/Main";
-import WorldProvider from "./Context/WorldContext";
+import GameProvider from "./Context/GameContext";
+import PeopleProvider from "./Context/PeopleContext";
 
 function App() {
   return (
-    <WorldProvider>
-      <Main />
-    </WorldProvider>
+    <GameProvider>
+      <PeopleProvider>
+        <Main />
+      </PeopleProvider>
+    </GameProvider>
   );
 }
 
