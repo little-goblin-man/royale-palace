@@ -3,11 +3,12 @@ import { GameStartEvent } from "./Intro/GameStart";
 
 interface EventMapping {
     component: () => FunctionComponent
-    weight: number
+    weight: number,
+    oneOffEvent: boolean
   }
 
 export const EventsMap: EventMapping[] =
     [
-      {component: () => GameStartEvent, weight: 0},
+      {component: () => GameStartEvent, weight: 0, oneOffEvent: true},
     ]
 

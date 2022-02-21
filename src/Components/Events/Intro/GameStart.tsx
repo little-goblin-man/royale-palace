@@ -90,6 +90,8 @@ export const GameStartEvent: FunctionComponent = () => {
               surname: peopleContext.you?.surname,
               birthMonth: getRandomInt(12),
               birthYear: gameContext.date.year - 20,
+              gender: "male",
+              happiness: 100,
             });
             gameContext.setSelectedEventId(undefined);
           },

@@ -1,11 +1,11 @@
 import { createContext, Dispatch, SetStateAction, useState } from "react";
-import { Person, PersonBase } from "../Models/Person";
+import { Person, You } from "../Models/Person";
 
 type PeopleContextType = {
-  you: PersonBase | undefined;
-  setYou: Dispatch<SetStateAction<PersonBase | undefined>>;
+  you: You | undefined;
+  setYou: Dispatch<SetStateAction<You | undefined>>;
   court: Person[];
-  addPersonToCourt: (newGuy: PersonBase) => void;
+  addPersonToCourt: (newGuy: Person) => void;
 };
 
 export const PeopleContext = createContext<PeopleContextType>({
@@ -20,11 +20,11 @@ const PeopleProvider = ({
 }: {
   children?: JSX.Element;
 }): JSX.Element => {
-  const [you, setYou] = useState<PersonBase>();
+  const [you, setYou] = useState<You>();
   const [court, setCourt] = useState<Person[]>([]);
 
-  const addPersonToCourt = (newGuy: PersonBase) => {
-    setCourt([...court, { ...newGuy, happiness: 100 }]);
+  const addPersonToCourt = (newGuy: Person) => {
+    setCourt([...court, newGuy]);
   };
 
   return (
