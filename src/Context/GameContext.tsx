@@ -7,6 +7,8 @@ import {
 } from "react";
 import { OldyTimeyDate } from "../Models/OldyTimeyDate";
 
+const MONTH_LENGTH = 2000;
+
 type GameContextType = {
   date: OldyTimeyDate;
   selectedEventId: number | undefined;
@@ -40,11 +42,17 @@ const GameProvider = ({
         }
       }
     };
-    setTimeout(updateDate, 2000);
+    setTimeout(updateDate, MONTH_LENGTH);
   }, [date, selectedEventId]);
 
   return (
-    <GameContext.Provider value={{ date, selectedEventId, setSelectedEventId }}>
+    <GameContext.Provider
+      value={{
+        date,
+        selectedEventId,
+        setSelectedEventId,
+      }}
+    >
       {children}
     </GameContext.Provider>
   );

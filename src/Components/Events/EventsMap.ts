@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { GameStartEvent } from "./GameStartEvent/GameStart";
+import { GameStartEvent } from "./Intro/GameStart";
 
 interface EventMapping {
     component: () => FunctionComponent
@@ -8,6 +8,6 @@ interface EventMapping {
 
 export const EventsMap: EventMapping[] =
     [
-        {component: () => GameStartEvent, weight: 0}
+      {component: () => GameStartEvent, weight: 0},
     ]
 

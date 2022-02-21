@@ -3,12 +3,15 @@ import "./App.css";
 import { Main } from "./Components/Main";
 import GameProvider from "./Context/GameContext";
 import PeopleProvider from "./Context/PeopleContext";
+import StoryProvider from "./Context/StoryContext";
 
 function App() {
   return (
     <GameProvider>
       <PeopleProvider>
-        <Main />
+        <StoryProvider>
+          <Main />
+        </StoryProvider>
       </PeopleProvider>
     </GameProvider>
   );

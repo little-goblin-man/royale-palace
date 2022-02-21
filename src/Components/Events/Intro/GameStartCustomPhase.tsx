@@ -26,8 +26,6 @@ export const GameStartCustomPhase: FunctionComponent<PhaseProps> = ({
   const [surname, setSurname] = useState<string | undefined>();
   const birthYear = gameContext.date.year - 25;
 
-  const [kingdomName, setKingdomName] = useState<string | undefined>();
-
   useEffect(() => {
     peopleContext.setYou({
       forename,
@@ -36,10 +34,6 @@ export const GameStartCustomPhase: FunctionComponent<PhaseProps> = ({
       birthYear,
     });
   }, [forename, birthMonth, surname]);
-
-  useEffect(() => {
-    storyContext.setKingdomName(kingdomName);
-  }, [kingdomName]);
 
   return (
     <Fragment>
@@ -75,7 +69,7 @@ export const GameStartCustomPhase: FunctionComponent<PhaseProps> = ({
           <Form.Group className="mb-3">
             <Form.Control
               placeholder="What was the name of your family kingdom?"
-              onChange={(e) => setKingdomName(e.target.value)}
+              onChange={(e) => storyContext.setKingdomName(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3">
