@@ -87,7 +87,7 @@ export const GameStartEvent: FunctionComponent = () => {
           nextStep: () => {
             peopleContext.addPersonToCourt({
               forename: "Dinklebert",
-              surname: peopleContext.you?.surname,
+              surname: peopleContext.you ? peopleContext.you.surname : "",
               birthMonth: getRandomInt(12),
               birthYear: gameContext.date.year - 20,
               gender: "male",

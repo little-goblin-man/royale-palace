@@ -1,19 +1,19 @@
 import { OldyTimeyDate } from "./OldyTimeyDate";
 
 export interface Person {
-  forename: string | undefined;
-  surname: string | undefined;
-  birthMonth: number | undefined;
-  birthYear: number | undefined;
+  forename: string;
+  surname: string;
+  birthMonth: number;
+  birthYear: number;
   gender: "male" | "female";
   happiness: number;
 }
 
 export interface You {
-  forename: string | undefined;
-  surname: string | undefined;
-  birthMonth: number | undefined;
-  birthYear: number | undefined;
+  forename: string;
+  surname: string;
+  birthMonth: number;
+  birthYear: number;
 }
 
 export function calculateAge(

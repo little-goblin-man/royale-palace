@@ -7,9 +7,13 @@ export const CourtPanel: FunctionComponent = () => {
 
   return (
     <Fragment>
-      <Row className="h5 text-dark border-bottom">
-        <div className="text-center">Court</div>
-      </Row>
+      {peopleContext.court.length > 0 ? (
+        <Row className="h5 text-dark border-bottom">
+          <div className="text-center">Court</div>
+        </Row>
+      ) : (
+        <div></div>
+      )}
       {peopleContext.court.map((p) => {
         return (
           <Row className="pt-1">

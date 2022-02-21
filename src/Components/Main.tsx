@@ -32,7 +32,7 @@ export const Main: FunctionComponent = () => {
       <Container className="bg-light h-100 mw-100 p-0">
         <Row className="h-100">
           <Col md={2} className="h-100">
-            <Container className="border-start h-100 w-100 bg-white">
+            <Container className="border-end h-100 w-100 bg-white">
               <CourtPanel />
             </Container>
           </Col>
@@ -49,11 +49,11 @@ export const Main: FunctionComponent = () => {
             </Card>
           </Col>
           <Col md={2} className="h-100">
-            <Container className="border-start h-100 w-100 bg-white">
-              <Row className="mb-5">
+            <Container className="h-100 w-100 bg-white">
+              <Row className="h-50">
                 <CharacterPanel />
               </Row>
-              <Row>
+              <Row className="h-50">
                 <KingdomPanel />
               </Row>
             </Container>

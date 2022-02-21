@@ -27,12 +27,13 @@ export const GameStartCustomPhase: FunctionComponent<PhaseProps> = ({
   const birthYear = gameContext.date.year - 25;
 
   useEffect(() => {
-    peopleContext.setYou({
-      forename,
-      surname,
-      birthMonth,
-      birthYear,
-    });
+    if (forename && birthMonth && surname)
+      peopleContext.setYou({
+        forename,
+        surname,
+        birthMonth,
+        birthYear,
+      });
   }, [forename, birthMonth, surname]);
 
   return (
