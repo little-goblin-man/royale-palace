@@ -1,8 +1,8 @@
 import { Fragment, FunctionComponent } from "react";
 import { Button, Card } from "react-bootstrap";
-import { PhaseProps } from "./PhaseProps";
+import { EventPhaseProps } from "./EventPhaseProps";
 
-export const VanillaPhase: FunctionComponent<PhaseProps> = ({
+export const VanillaEventPhase: FunctionComponent<EventPhaseProps> = ({
   title,
   body,
   options,

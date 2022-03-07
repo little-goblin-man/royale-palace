@@ -8,7 +8,6 @@ import {
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { GameContext } from "../Context/GameContext";
 import { CharacterPanel } from "./CharacterPanel";
-import { EventsMap } from "./Events/EventsMap";
 import { Header } from "./Header";
 import { KingdomPanel } from "./KingdomPanel";
 import { CourtPanel } from "./CourtPanel";
@@ -16,11 +15,13 @@ import { CourtPanel } from "./CourtPanel";
 export const Main: FunctionComponent = () => {
   const gameContext = useContext(GameContext);
 
-  const [EventComponent, setEventComponent] = useState<any>();
+  const [EventComponent, setEventComponent] = useState<FunctionComponent>();
 
   useEffect(() => {
     if (gameContext.selectedEventId !== undefined) {
-      setEventComponent(EventsMap[gameContext.selectedEventId].component);
+      setEventComponent(
+        gameContext.eventRunner.eventsMap[gameContext.selectedEventId].component
+      );
     } else {
       setEventComponent(undefined);
     }

@@ -10,8 +10,8 @@ import { PeopleContext } from "../../../Context/PeopleContext";
 import { StoryContext } from "../../../Context/StoryContext";
 import { Person } from "../../../Models/Person";
 import { Gender } from "../../../Models/PersonBase";
-import { PhaseProps } from "../PhaseProps";
-import { VanillaPhase } from "../VanillaPhase";
+import { EventPhaseProps } from "../EventPhaseProps";
+import { VanillaEventPhase } from "../VanillaEventPhase";
 import { GameStartCustomPhase } from "./GameStartCustomPhase";
 
 export const GameStartEvent: FunctionComponent = () => {
@@ -21,7 +21,7 @@ export const GameStartEvent: FunctionComponent = () => {
 
   const [currentPhaseid, setCurrentPhaseId] = useState<number>(1);
 
-  const phases: PhaseProps[] = [
+  const phases: EventPhaseProps[] = [
     {
       id: 1,
       title: "The travelling prince...",
@@ -105,7 +105,7 @@ export const GameStartEvent: FunctionComponent = () => {
     },
   ];
 
-  const [currentPhaseProps, setCurrentPhaseProps] = useState<PhaseProps>();
+  const [currentPhaseProps, setCurrentPhaseProps] = useState<EventPhaseProps>();
 
   useEffect(() => {
     setCurrentPhaseProps(phases.find((e) => e.id === currentPhaseid));
@@ -117,7 +117,7 @@ export const GameStartEvent: FunctionComponent = () => {
         (currentPhaseProps.customComponent ? (
           <currentPhaseProps.customComponent {...currentPhaseProps} />
         ) : (
-          <VanillaPhase {...currentPhaseProps} />
+          <VanillaEventPhase {...currentPhaseProps} />
         ))}
     </Fragment>
   );

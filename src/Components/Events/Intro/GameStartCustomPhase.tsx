@@ -9,12 +9,12 @@ import { Button, Card, Form } from "react-bootstrap";
 import { GameContext } from "../../../Context/GameContext";
 import { PeopleContext } from "../../../Context/PeopleContext";
 import { StoryContext } from "../../../Context/StoryContext";
-import { PhaseProps } from "../PhaseProps";
+import { EventPhaseProps } from "../EventPhaseProps";
 import { Months } from "../../../Models/OldyTimeyDate";
 import { You } from "../../../Models/You";
 import { Gender } from "../../../Models/PersonBase";
 
-export const GameStartCustomPhase: FunctionComponent<PhaseProps> = ({
+export const GameStartCustomPhase: FunctionComponent<EventPhaseProps> = ({
   title,
   body,
   options,

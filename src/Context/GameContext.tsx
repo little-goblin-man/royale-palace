@@ -6,6 +6,8 @@ import {
   useState,
 } from "react";
 import { OldyTimeyDate } from "../Models/OldyTimeyDate";
+import { EventRunner } from "../Models/EventRunner";
+import { InitialEventsMap } from "../Components/Events/InitialEventsMap";
 
 const MONTH_LENGTH = 2000;
 
@@ -13,6 +15,7 @@ type GameContextType = {
   date: OldyTimeyDate;
   selectedEventId: number | undefined;
   setSelectedEventId: Dispatch<SetStateAction<number | undefined>>;
+  eventRunner: EventRunner;
 };
 
 export const GameContext = createContext<GameContextType>({
@@ -22,6 +25,7 @@ export const GameContext = createContext<GameContextType>({
   },
   selectedEventId: undefined,
   setSelectedEventId: () => {},
+  eventRunner: { eventsMap: [] },
 });
 
 const GameProvider = ({
@@ -31,6 +35,9 @@ const GameProvider = ({
 }): JSX.Element => {
   const [date, setDate] = useState<OldyTimeyDate>({ month: 1, year: 869 });
   const [selectedEventId, setSelectedEventId] = useState<number | undefined>(0);
+  const [eventRunner, setEventRunner] = useState<EventRunner>({
+    eventsMap: InitialEventsMap,
+  });
 
   useEffect(() => {
     const updateDate = () => {
@@ -51,6 +58,7 @@ const GameProvider = ({
         date,
         selectedEventId,
         setSelectedEventId,
+        eventRunner,
       }}
     >
       {children}
