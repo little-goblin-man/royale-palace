@@ -9,7 +9,6 @@ export interface PersonBase {
   birthYear: number;
   gender: Gender;
   health: number;
-  relationships: Relationship[];
 }
 
 export function calculateAge(
@@ -22,20 +21,6 @@ export function calculateAge(
   return (
     currentDate.year - birthYear + (currentDate.month >= birthMonth ? 1 : 0)
   );
-}
-
-export interface Relationship {
-  id: Guid;
-  relationshipStatus: RelationshipStatus;
-  opinion: number;
-}
-
-export enum RelationshipStatus {
-  spouse,
-  child,
-  friend,
-  acquaintance,
-  enemy,
 }
 
 export enum Gender {

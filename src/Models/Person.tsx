@@ -1,6 +1,6 @@
 import { Guid } from "guid-typescript";
 import { getRandomInt } from "../Components/Utilities/RandomNumbers";
-import { Gender, PersonBase, Relationship } from "./PersonBase";
+import { Gender, PersonBase } from "./PersonBase";
 
 export class Person implements PersonBase {
   id: Guid;
@@ -11,7 +11,6 @@ export class Person implements PersonBase {
   gender: Gender;
   happiness: number;
   health: number;
-  relationships: Relationship[];
 
   constructor(
     forename: string,
@@ -30,6 +29,5 @@ export class Person implements PersonBase {
     this.gender = gender;
     this.happiness = happiness ?? 0;
     this.health = health ?? 50;
-    this.relationships = [];
   }
 }

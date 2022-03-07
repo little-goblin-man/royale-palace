@@ -1,5 +1,5 @@
 import { Guid } from "guid-typescript";
-import { Gender, PersonBase, Relationship } from "./PersonBase";
+import { Gender, PersonBase } from "./PersonBase";
 
 export class You implements PersonBase {
   id: Guid;
@@ -9,7 +9,6 @@ export class You implements PersonBase {
   birthYear: number;
   gender: Gender;
   health: number;
-  relationships: Relationship[];
 
   constructor(
     forename: string,
@@ -26,6 +25,5 @@ export class You implements PersonBase {
     this.birthYear = birthYear;
     this.health = health;
     this.gender = gender;
-    this.relationships = [];
   }
 }
