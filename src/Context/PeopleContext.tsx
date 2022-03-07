@@ -10,6 +10,7 @@ type PeopleContextType = {
   addPersonToCourt: (newGuy: Person) => void;
   getPerson: (id: Guid) => Person | undefined;
   updatePerson: (updatedPerson: Person) => void;
+  removePerson: (id: Guid) => void;
 };
 
 export const PeopleContext = createContext<PeopleContextType>({
@@ -19,6 +20,7 @@ export const PeopleContext = createContext<PeopleContextType>({
   addPersonToCourt: () => {},
   getPerson: () => undefined,
   updatePerson: () => {},
+  removePerson: () => {},
 });
 
 const PeopleProvider = ({
@@ -44,9 +46,22 @@ const PeopleProvider = ({
     return court.find((p) => p.id === id);
   };
 
+  const removePerson = (id: Guid) => {
+    const newCourt = court.filter((c) => c.id !== id);
+    setCourt(newCourt);
+  };
+
   return (
     <PeopleContext.Provider
-      value={{ you, setYou, court, addPersonToCourt, getPerson, updatePerson }}
+      value={{
+        you,
+        setYou,
+        court,
+        addPersonToCourt,
+        getPerson,
+        updatePerson,
+        removePerson,
+      }}
     >
       {children}
     </PeopleContext.Provider>

@@ -10,6 +10,7 @@ export class Person implements PersonBase {
   birthYear: number;
   gender: Gender;
   happiness: number;
+  health: number;
   relationships: Relationship[];
 
   constructor(
@@ -18,7 +19,8 @@ export class Person implements PersonBase {
     gender: Gender,
     birthYear: number,
     birthMonth?: number,
-    happiness?: number
+    happiness?: number,
+    health?: number
   ) {
     this.id = Guid.create();
     this.forename = forename;
@@ -27,6 +29,7 @@ export class Person implements PersonBase {
     this.birthYear = birthYear;
     this.gender = gender;
     this.happiness = happiness ?? 0;
+    this.health = health ?? 50;
     this.relationships = [];
   }
 }
