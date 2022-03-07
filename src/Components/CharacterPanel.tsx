@@ -1,8 +1,8 @@
-import { Fragment, FunctionComponent, useContext } from "react";
+import { FunctionComponent, useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import { GameContext } from "../Context/GameContext";
 import { PeopleContext } from "../Context/PeopleContext";
-import { calculateAge } from "../Models/Person";
+import { calculateAge } from "../Models/PersonBase";
 
 export const CharacterPanel: FunctionComponent = () => {
   const peopleContext = useContext(PeopleContext);

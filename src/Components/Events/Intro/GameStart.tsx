@@ -8,7 +8,8 @@ import {
 import { GameContext } from "../../../Context/GameContext";
 import { PeopleContext } from "../../../Context/PeopleContext";
 import { StoryContext } from "../../../Context/StoryContext";
-import { getRandomInt } from "../../Utilities/RandomNumbers";
+import { Person } from "../../../Models/Person";
+import { Gender } from "../../../Models/PersonBase";
 import { PhaseProps } from "../PhaseProps";
 import { VanillaPhase } from "../VanillaPhase";
 import { GameStartCustomPhase } from "./GameStartCustomPhase";
@@ -85,14 +86,18 @@ export const GameStartEvent: FunctionComponent = () => {
         {
           text: "Oh. Ok then.",
           nextStep: () => {
-            peopleContext.addPersonToCourt({
-              forename: "Dinklebert",
-              surname: peopleContext.you ? peopleContext.you.surname : "",
-              birthMonth: getRandomInt(12),
-              birthYear: gameContext.date.year - 20,
-              gender: "male",
-              happiness: 100,
-            });
+            peopleContext.addPersonToCourt(
+              new Person(
+                "Dinklebert",
+                peopleContext.you
+                  ? peopleContext.you.surname
+                  : "Something bad happened",
+                Gender.male,
+                gameContext.date.year - 20,
+                undefined,
+                100
+              )
+            );
             gameContext.setSelectedEventId(undefined);
           },
         },

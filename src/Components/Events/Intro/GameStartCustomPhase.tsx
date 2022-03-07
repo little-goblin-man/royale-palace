@@ -11,6 +11,8 @@ import { PeopleContext } from "../../../Context/PeopleContext";
 import { StoryContext } from "../../../Context/StoryContext";
 import { PhaseProps } from "../PhaseProps";
 import { Months } from "../../../Models/OldyTimeyDate";
+import { You } from "../../../Models/You";
+import { Gender } from "../../../Models/PersonBase";
 
 export const GameStartCustomPhase: FunctionComponent<PhaseProps> = ({
   title,
@@ -24,17 +26,15 @@ export const GameStartCustomPhase: FunctionComponent<PhaseProps> = ({
   const [forename, setForename] = useState<string | undefined>();
   const [birthMonth, setBirthMonth] = useState<number | undefined>();
   const [surname, setSurname] = useState<string | undefined>();
+  const [gender, setGender] = useState<Gender | undefined>();
   const birthYear = gameContext.date.year - 25;
 
   useEffect(() => {
-    if (forename && birthMonth && surname)
-      peopleContext.setYou({
-        forename,
-        surname,
-        birthMonth,
-        birthYear,
-      });
-  }, [forename, birthMonth, surname]);
+    if (forename && birthMonth && surname && gender !== undefined)
+      peopleContext.setYou(
+        new You(forename, surname, gender, birthYear, birthMonth)
+      );
+  }, [forename, birthMonth, surname, gender]);
 
   return (
     <Fragment>
@@ -66,6 +66,16 @@ export const GameStartCustomPhase: FunctionComponent<PhaseProps> = ({
               placeholder="What was your family surname?"
               onChange={(e) => setSurname(e.target.value)}
             />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Select
+              value={gender}
+              onChange={(e) => setGender(parseInt(e.target.value))}
+            >
+              <option>Choose your gender</option>
+              <option value={0}>Male</option>
+              <option value={1}>Female</option>
+            </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Control
