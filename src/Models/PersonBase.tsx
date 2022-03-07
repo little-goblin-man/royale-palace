@@ -8,6 +8,7 @@ export interface PersonBase {
   birthMonth: number;
   birthYear: number;
   gender: Gender;
+  health: number;
   relationships: Relationship[];
 }
 

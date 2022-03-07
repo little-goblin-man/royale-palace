@@ -8,6 +8,7 @@ export class You implements PersonBase {
   birthMonth: number;
   birthYear: number;
   gender: Gender;
+  health: number;
   relationships: Relationship[];
 
   constructor(
@@ -15,13 +16,15 @@ export class You implements PersonBase {
     surname: string,
     gender: Gender,
     birthYear: number,
-    birthMonth: number
+    birthMonth: number,
+    health: number = 50
   ) {
     this.id = Guid.create();
     this.forename = forename;
     this.surname = surname;
     this.birthMonth = birthMonth;
     this.birthYear = birthYear;
+    this.health = health;
     this.gender = gender;
     this.relationships = [];
   }
